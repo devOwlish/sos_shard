@@ -37,7 +37,7 @@ namespace Server
 	// single player, and you turn the server on/off as required, then set this to true so these routines at least run
 	// when you start the game for you.
 
-		public static bool S_RunRoutinesAtStartup = true;
+		public static bool S_RunRoutinesAtStartup = false;
 
 	// This setting is the number of days a character must exist before a player can delete them.
 
@@ -66,7 +66,7 @@ namespace Server
 
 		// Here you can enter the name of your server/world
 
-		public static string S_ServerName = "Secrets of Sosaria";
+		public static string S_ServerName = "Secrets of Sowaria";
 
 	// If true, your public IP address will be auto detected to help with external connections.
 
@@ -217,7 +217,7 @@ namespace Server
 	// Maximum amount of lower reagent percentage, up to 100 for 100%. For equipment with lower reagent properties.
 	// Setting it to zero will disable the attribute from the game.
 
-		public static int S_LowerReg = 50;
+		public static int S_LowerReg = 80;
 
 	// Maximum aount of lower mana percentage, up to 100 for 100%. For equipment with lower mana properties.
 	// Setting it to zero will disable the attribute from the game.
@@ -543,7 +543,7 @@ namespace Server
 	// regular stocking schedule. The resources items are made of will be land specific. EXAMPLE: If you can only
 	// get obsidian metal in the Serpent Island, then you will may only find obsidian items in that land.
 
-		public static bool S_BlackMarket = false;
+		public static bool S_BlackMarket = true;
 
 	// If true, then the custom merchant is enabled. After a [buildworld command, these merchants will appear in
 	// the various settlements with their wagon. They will sell any custom items you set in the Info/Scripts folder.
@@ -596,7 +596,7 @@ namespace Server
 
 	// The amount of houses an account's characters may own. A -1 setting will be unlimited.
 
-		public static int S_HousesPerAccount = 1;
+		public static int S_HousesPerAccount = 5;
 
 	// If true, this means that the players can dye construction contracts so their pre-designed home is
 	// entirely in that same color.
@@ -666,7 +666,7 @@ namespace Server
 
 	// If true, then followers will not stack on top of each other but instead spread out a bit.
 
-		public static bool S_FriendsAvoidHeels = false;
+		public static bool S_FriendsAvoidHeels = true;
 
 	// If true, then followers will not only guard you when commanded, but guard the other
 	// followers in your group.
