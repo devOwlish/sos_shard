@@ -44,7 +44,7 @@ namespace Server
 
 		// If true, saves the game when your character logs out. Helpful for single player games.
 
-		public static bool S_SaveOnCharacterLogout = true;
+		public static bool S_SaveOnCharacterLogout = false;
 
 		// The server has some self-cleaning and self-sustaining scripts it runs every hour, 3 hours, & 24 hours. If you run
 		// a 24x7 server, you can set the below to false since your server will run these at those times, but if you play
@@ -141,7 +141,7 @@ namespace Server
 
 		public static int S_BoneDecay = 113;
 
-  	// The setting below controls if mark/recall is available to traditionally restricted places like ambrosia, ravendark village, 
+  	// The setting below controls if mark/recall is available to traditionally restricted places like ambrosia, ravendark village,
 	// caverns of poseidon and the like. Quest related worlds will remain blocked regardless of the chosen option. Default is true.
 
 		public static bool S_TravelRestrictions = true;
@@ -219,7 +219,7 @@ namespace Server
 		// setting, and it cannot be lower than 1. If it was set to 20, and a charcter was level 10, then their resurrection cost
 		// would be a base of 200 gold/tithe ( 20 x 10 ).
 
-		public static int S_DeathPayLevel = 5;
+		public static int S_DeathPayLevel = 50;
 		public static int S_DeathPayAmount = 20;
 
 		// Spell damage toward monsters can be between 25 and 200 percent.
@@ -354,11 +354,11 @@ namespace Server
 
 		public static int S_TrainMulti = 1;
 
-	// This setting controls whether items with skill bonuses can go past the character skill cap or not. 
+	// This setting controls whether items with skill bonuses can go past the character skill cap or not.
 	// if set to true (default) a character will not need a powerscroll to get a skill above 100 with an item giving a bonus to that skill,
-	// if set to false, a character will them need to use a powerscroll in order to get their skill past cap. 
+	// if set to false, a character will them need to use a powerscroll in order to get their skill past cap.
 
-		public static bool S_itemsOvercapSkills = true; 
+		public static bool S_itemsOvercapSkills = true;
 
 
 	///////////////////////////////////////////////////////////////////////////////////////////////
