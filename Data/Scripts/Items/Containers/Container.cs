@@ -139,7 +139,7 @@ namespace Server.Items
 			else if ( box == 2 )
 				from.SendMessage( "Choose a container for your crafted items." );
 
-			else 
+			else
 				from.SendMessage( "Choose a container for your harvested items." );
 		}
 
@@ -271,7 +271,7 @@ namespace Server.Items
 			base.AddItem( dropped );
 			InvalidateWeight();
 		}
-		
+
 		public override void RemoveItem( Item dropped )
 		{
 			base.RemoveItem( dropped );
@@ -2007,6 +2007,43 @@ namespace Server.Items
 	}
 
 	[DynamicFliping]
+	[Flipable(0x2823, 0x2824)]
+	public class MercantileStoneChest : LockableContainer
+	{
+		public override int DefaultMaxWeight { get { return 0; } } // A value of 0 signals unlimited weight
+
+		public override CraftResource DefaultResource { get { return CraftResource.Valorite; } }
+
+		[Constructable]
+		public MercantileStoneChest() : base(0x2823)
+		{
+			Name = "a mercantile stone chest";
+			GumpID = 0x2810;
+		}
+
+		public MercantileStoneChest(Serial serial) : base(serial)
+		{
+		}
+
+		public override void Serialize(GenericWriter writer)
+		{
+			base.Serialize(writer);
+
+			writer.Write((int)1); // version
+		}
+
+		public override void Deserialize(GenericReader reader)
+		{
+			base.Deserialize(reader);
+
+			int version = reader.ReadInt();
+
+			if (version == 0 && Weight == 25)
+				Weight = -1;
+		}
+	}
+
+	[DynamicFliping]
 	[Flipable( 0x3330, 0x3331 )]
 	public class SilverChest : LockableContainer
 	{
@@ -2441,7 +2478,7 @@ namespace Server.Items
 
 			if ( version == 0 && Weight == 15 )
 				Weight = -1;
-			
+
 			GumpID = 0x10C;
 		}
 	}
