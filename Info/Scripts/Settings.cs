@@ -328,7 +328,7 @@ namespace Server
 		// it to '2' then characters get 200 (2 x 100) more skills points available.
 		// TODO: Discuss. Leave as it is cuz of the balance settings?
 
-		public static int S_SkillBoost = 0;
+		public static int S_SkillBoost = 5;
 
 		// To use special weapon abilities, this is the minimum skill level required (weapon skill and tactics) where the
 		// default is 70.0 (minimum of 20.0). Each ability requires 10 additional points above the previous (70, 80, 90, etc).
