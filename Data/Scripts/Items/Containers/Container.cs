@@ -2019,6 +2019,12 @@ namespace Server.Items
 		{
 			Name = "a mercantile stone chest";
 			GumpID = 0x2810;
+			Movable = false;
+		}
+
+		public override bool IsDecoContainer
+		{
+			get { return false; }
 		}
 
 		public MercantileStoneChest(Serial serial) : base(serial)
