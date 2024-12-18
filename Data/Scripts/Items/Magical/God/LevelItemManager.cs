@@ -201,9 +201,47 @@ namespace Server.Items
 
 			if ( item is Item )
 				((Item)item).InvalidateProperties();
+
+			killer.SendMessage("Your " + ItemDesc(item) + " has gained " + exp + " experience.");
+
 		}
 
-        public static void OnLevel(ILevelable item, int oldLevel, int newLevel, Mobile from)
+		public static string ItemDesc(ILevelable item) {
+			string itemdesc;
+
+			if (item is BaseWeapon)
+				itemdesc = "weapon";
+			else if (item is BaseArmor)
+				itemdesc = "armor";
+			else if (item is BaseTrinket && item is LevelCandle)
+				itemdesc = "candle";
+			else if (item is BaseTrinket && item is LevelLantern)
+				itemdesc = "lantern";
+			else if (item is BaseTrinket && item is LevelTorch)
+				itemdesc = "torch";
+			else if (item is BaseTrinket && item is LevelTalismanLeather)
+				itemdesc = "talisman";
+			else if (item is BaseTrinket && item is LevelTalismanSnake)
+				itemdesc = "talisman";
+			else if (item is BaseTrinket && item is LevelTalismanTotem)
+				itemdesc = "talisman";
+			else if (item is BaseTrinket && item is LevelTalismanHoly)
+				itemdesc = "talisman";
+			else if (item is BaseTrinket && item is LevelBelt)
+				itemdesc = "belt";
+			else if (item is BaseTrinket && item is LevelLoinCloth)
+				itemdesc = "loin cloth";
+			else if (item is BaseTrinket)
+				itemdesc = "jewelry";
+			else if (item is BaseClothing)
+				itemdesc = "clothing";
+			else
+				itemdesc = "item";
+
+			return itemdesc;
+		}
+
+		public static void OnLevel(ILevelable item, int oldLevel, int newLevel, Mobile from)
         {
             /* This is where we control all our props
              * and their maximum value. */
@@ -224,36 +262,9 @@ namespace Server.Items
 			from.FixedParticles( 0x376A, 1, 31, 9961, 1160, 0, EffectLayer.Waist );
 			from.FixedParticles( 0x37C4, 1, 31, 9502, 43, 2, EffectLayer.Waist );
 
-			if ( item is BaseWeapon )
-				itemdesc = "weapon";
-			else if ( item is BaseArmor )
-				itemdesc = "armor";
-			else if ( item is BaseTrinket && item is LevelCandle )
-				itemdesc = "candle";
-			else if ( item is BaseTrinket && item is LevelLantern )
-				itemdesc = "lantern";
-			else if ( item is BaseTrinket && item is LevelTorch )
-				itemdesc = "torch";
-			else if ( item is BaseTrinket && item is LevelTalismanLeather )
-				itemdesc = "talisman";
-			else if ( item is BaseTrinket && item is LevelTalismanSnake )
-				itemdesc = "talisman";
-			else if ( item is BaseTrinket && item is LevelTalismanTotem )
-				itemdesc = "talisman";
-			else if ( item is BaseTrinket && item is LevelTalismanHoly )
-				itemdesc = "talisman";
-			else if ( item is BaseTrinket && item is LevelBelt )
-				itemdesc = "belt";
-			else if ( item is BaseTrinket && item is LevelLoinCloth )
-				itemdesc = "loin cloth";
-			else if ( item is BaseTrinket )
-				itemdesc = "jewelry";
-			else if ( item is BaseClothing )
-				itemdesc = "clothing";
-			else
-				itemdesc = "item";
 
-			from.SendMessage( "Your "+itemdesc+" has gained a level. It is now level {0}.", newLevel );
+
+			from.SendMessage( "Your "+ ItemDesc(item)+ " has gained a level. It is now level {0}.", newLevel );
         }
 	}
 }
